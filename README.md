@@ -1,4 +1,4 @@
-# LeCoupon Copy (优惠码复制插件)
+# lecouponcopy (优惠码复制插件)
 
 一个简单而功能强大的WordPress优惠码复制插件，支持纯文本复制和带跳转链接的复制功能。
 
@@ -25,7 +25,7 @@ A simple yet powerful WordPress coupon code copy plugin that supports both plain
 ### 完整短代码参数 (Full Shortcode Parameters)
 
 ```
-[lecoupon code="COUPON123" text="优惠码可见文本" url="https://laojiang.me"]
+[lecoupon code="COUPON123" text="优惠码可见文本" url="https://www.lezaiyun.com"]
 ```
 
 参数说明 (Parameters):
@@ -76,10 +76,8 @@ A: 是的，您可以在同一页面使用多个短代码来显示不同的优�
 
 ## 技术支持
 
-如有问题或建议，请通过以下方式联系：
-
-* [老蒋玩运营](https://www.laojiang.me/ "老蒋玩运营")
-
 * [乐在云工作室](https://www.lezaiyun.com/ "乐在云工作室")
+
+* [主机评价网](https://www.zhujipingjia.com/ "主机评价网")
 
 * 欢迎加入插件和站长微信公众号：老蒋朋友圈（公众号）

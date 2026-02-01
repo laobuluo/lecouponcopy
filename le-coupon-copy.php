@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name: LeCoupon Copy
+ * Plugin Name: lecouponcopy
  * Plugin URI:  https://www.lezaiyun.com/866.html
  * Description: 一个简单的优惠码复制插件，支持纯文本复制和带跳转链接的复制功能。公众号：<span style="color: red;">老蒋朋友圈</span>
  * Version: 1.0.0
  * Author: 老蒋和他的小伙伴
- * Author URI: https://www.laojiang.me/
+ * Author URI: https://www.lezaiyun.com/
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: https://www.laojiang.me/
+ * Text Domain: lecouponcopy
  */
 
 if (!defined('ABSPATH')) {
@@ -26,17 +26,12 @@ class LeCouponCopy {
     }
 
     private function __construct() {
-        add_action('init', array($this, 'init'));
         add_action('admin_menu', array($this, 'add_admin_menu'));
         add_action('admin_init', array($this, 'register_settings'));
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
         add_shortcode('lecoupon', array($this, 'coupon_shortcode'));
         add_action('admin_init', array($this, 'add_editor_button'));
         add_action('admin_print_footer_scripts', array($this, 'add_quicktags_button'));
-    }
-
-    public function init() {
-        load_plugin_textdomain('le-coupon-copy', false, dirname(plugin_basename(__FILE__)) . '/languages');
     }
 
     public function activate() {
@@ -73,22 +68,61 @@ class LeCouponCopy {
     }
 
     public function register_settings() {
-        register_setting('le_coupon_copy_options', 'le_coupon_copy_options');
+        register_setting(
+            'le_coupon_copy_options',
+            'le_coupon_copy_options',
+            array(
+                'type'              => 'array',
+                'sanitize_callback' => array($this, 'sanitize_options'),
+            )
+        );
+    }
+
+    /**
+     * Sanitize options before saving.
+     *
+     * @param array $input Raw option values.
+     * @return array Sanitized options.
+     */
+    public function sanitize_options($input) {
+        if (!is_array($input)) {
+            return array();
+        }
+        $defaults = array(
+            'text_color'   => '#333333',
+            'button_color' => '#4CAF50',
+            'code_color'   => '#666666',
+            'border_color' => '#E0E0E0',
+            'text_size'    => 14,
+            'button_size'  => 14,
+            'code_size'    => 14,
+        );
+        $sanitized = array();
+        foreach (array('text_color', 'button_color', 'code_color', 'border_color') as $key) {
+            $val = isset($input[ $key ]) ? sanitize_hex_color($input[ $key ]) : '';
+            $sanitized[ $key ] = $val ? $val : $defaults[ $key ];
+        }
+        foreach (array('text_size', 'button_size', 'code_size') as $key) {
+            $val = isset($input[ $key ]) ? absint($input[ $key ]) : $defaults[ $key ];
+            $sanitized[ $key ] = max(10, min(30, $val));
+        }
+        return $sanitized;
     }
 
     public function enqueue_scripts() {
-        wp_enqueue_style('le-coupon-copy-style', plugins_url('assets/css/style.css', __FILE__));
-        
+        $asset_version = '1.0.0';
+        wp_enqueue_style('le-coupon-copy-style', plugins_url('assets/css/style.css', __FILE__), array(), $asset_version);
+
         // 添加 clipboard.js 库
         wp_enqueue_script('clipboard', 'https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js', array('jquery'), '2.0.11', true);
-        
+
         // 确保我们的脚本在 clipboard.js 之后加载
-        wp_enqueue_script('le-coupon-copy-script', plugins_url('assets/js/script.js', __FILE__), array('jquery', 'clipboard'), '1.0.0', true);
-        
+        wp_enqueue_script('le-coupon-copy-script', plugins_url('assets/js/script.js', __FILE__), array('jquery', 'clipboard'), $asset_version, true);
+
         wp_localize_script('le-coupon-copy-script', 'leCouponCopy', array(
-            'copied_text' => __('已复制!', 'le-coupon-copy'),
-            'copy_button_text' => __('复制', 'le-coupon-copy'),
-            'success_message' => __('优惠码已复制！', 'le-coupon-copy')
+            'copied_text'       => __('已复制!', 'lecouponcopy'),
+            'copy_button_text'  => __('复制', 'lecouponcopy'),
+            'success_message'   => __('优惠码已复制！', 'lecouponcopy'),
         ));
     }
 
@@ -100,6 +134,18 @@ class LeCouponCopy {
         ), $atts, 'lecoupon');
 
         $options = get_option('le_coupon_copy_options');
+        if (!is_array($options)) {
+            $options = array();
+        }
+        $options = array_merge(array(
+            'text_color'   => '#333333',
+            'button_color' => '#4CAF50',
+            'code_color'   => '#666666',
+            'border_color' => '#E0E0E0',
+            'text_size'    => '14',
+            'button_size'  => '14',
+            'code_size'    => '14',
+        ), $options);
         $code = !empty($atts['code']) ? $atts['code'] : '';
         $text = !empty($atts['text']) ? $atts['text'] : $code;
         $url = !empty($atts['url']) ? $atts['url'] : '';
@@ -109,7 +155,7 @@ class LeCouponCopy {
         $html = '<span class="le-coupon-container">';
         $html .= '<span class="le-coupon-copy-wrapper" style="border: 1px solid ' . esc_attr($options['border_color']) . ';">';
         $html .= '<span class="le-coupon-text" style="color:' . esc_attr($options['text_color']) . ';font-size:' . esc_attr($options['text_size']) . 'px;">' . esc_html($text) . '</span>';
-        $html .= '<button class="le-coupon-copy-btn" data-clipboard-text="' . esc_attr($code) . '" data-url="' . esc_url($url) . '" style="color:' . esc_attr($options['button_color']) . ';font-size:' . esc_attr($options['button_size']) . 'px;">' . esc_html__('复制', 'le-coupon-copy') . '</button>';
+        $html .= '<button class="le-coupon-copy-btn" data-clipboard-text="' . esc_attr($code) . '" data-url="' . esc_url($url) . '" style="color:' . esc_attr($options['button_color']) . ';font-size:' . esc_attr($options['button_size']) . 'px;">' . esc_html__('复制', 'lecouponcopy') . '</button>';
         $html .= '</span>';
         $html .= '</span>';
 
@@ -134,7 +180,7 @@ class LeCouponCopy {
     }
 
     public function add_tinymce_plugin($plugin_array) {
-        $plugin_array['le_coupon_copy'] = plugins_url('assets/js/editor-plugin.js', __FILE__);
+        $plugin_array['le_coupon_copy'] = esc_url(plugins_url('assets/js/editor-plugin.js', __FILE__));
         return $plugin_array;
     }
 

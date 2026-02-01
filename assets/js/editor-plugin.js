@@ -3,7 +3,7 @@
         init: function(ed, url) {
             ed.addButton('le_coupon_copy', {
                 title: '插入优惠码',
-                icon: 'coupon',
+                image: url.replace(/\/[^/]+\.js$/, '') + '/../images/coupon-icon.svg',
                 onclick: function() {
                     ed.windowManager.open({
                         title: '插入优惠码',
