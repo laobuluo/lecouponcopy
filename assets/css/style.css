@@ -1,0 +1,71 @@
+.le-coupon-container {
+    display: inline;
+    vertical-align: baseline;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.le-coupon-copy-wrapper {
+    display: inline-block;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    border-radius: 4px;
+    overflow: hidden;
+    vertical-align: middle;
+    white-space: nowrap;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.le-coupon-text {
+    display: inline-block;
+    margin: 0;
+    padding: 8px 12px;
+    vertical-align: middle;
+}
+
+.le-coupon-copy-btn {
+    display: inline-block;
+    padding: 8px 12px;
+    border: none;
+    border-left: 1px solid currentColor;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+.le-coupon-copy-btn:hover {
+    opacity: 0.8;
+}
+
+.le-coupon-copy-btn.copied {
+    background-color: #4CAF50;
+    color: white !important;
+    border-color: #4CAF50;
+}
+
+.le-coupon-copy-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    z-index: 9999;
+    display: none;
+    animation: fadeInOut 2s ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-20px); }
+    20% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
