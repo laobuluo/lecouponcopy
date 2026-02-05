@@ -4,20 +4,6 @@
 
 A simple yet powerful WordPress coupon code copy plugin that supports both plain text copying and copying with redirect links.
 
-## 插件团队和技术支持
-
-[乐在云](https://www.lezaiyun.com/)（老蒋和他的伙伴们），本着资源共享原则，在运营网站过程中用到的或者是有需要用到的主题、插件资源，有选择的免费分享给广大的网友站长，希望能够帮助到你建站过程中提高效率。
-
-感谢团队成员，以及网友提出的优化工具的建议，才有后续产品的不断迭代适合且满足用户需要。不能确保100%的符合兼容网站，我们也仅能做到在工作之余不断的接近和满足你的需要。
-
-| 类目             | 信息                                                         |
-| ---------------- | ------------------------------------------------------------ |
-| 插件更新地址     | https://www.lezaiyun.com/792.html                            |
-| 团队成员         | [老蒋](https://www.laojiang.me/)、老赵、[CNJOEL](https://www.rakvps.com/)、木村 |
-| 支持网站         | 乐在云、主机评价网、老蒋玩主机                               |
-| 建站资源推荐     | [便宜VPS推荐](https://www.zhujipingjia.com/pianyivps.html)、[美国VPS推荐](https://www.zhujipingjia.com/uscn2gia.html)、[外贸建站主机](https://www.zhujipingjia.com/wordpress-hosting.html)、[SSL证书推荐](https://www.zhujipingjia.com/two-ssls.html)、[WordPress主机推荐](https://www.zhujipingjia.com/wpblog-host.html) |
-| 提交WP官网（是） | https://cn.wordpress.org/plugins/wpwatermark/                |
-
 ## 功能特点 (Features)
 
 - 支持优惠码一键复制
@@ -88,10 +74,18 @@ A: 是的，您可以在同一页面使用多个短代码来显示不同的优�
 - 添加自定义样式设置
 - 支持编辑器快捷插入
 
-## 技术支持
+## 插件团队和技术支持
 
-* [乐在云工作室](https://www.lezaiyun.com/ "乐在云工作室")
+[乐在云](https://www.lezaiyun.com/)（老蒋和他的伙伴们），本着资源共享原则，在运营网站过程中用到的或者是有需要用到的主题、插件资源，有选择的免费分享给广大的网友站长，希望能够帮助到你建站过程中提高效率。
 
-* [主机评价网](https://www.zhujipingjia.com/ "主机评价网")
+感谢团队成员，以及网友提出的优化工具的建议，才有后续产品的不断迭代适合且满足用户需要。不能确保100%的符合兼容网站，我们也仅能做到在工作之余不断的接近和满足你的需要。
 
-* 欢迎加入插件和站长微信公众号：老蒋朋友圈（公众号）
+| 类目            | 信息                                                         |
+| --------------- | ------------------------------------------------------------ |
+| 插件更新地址    | https://www.lezaiyun.com/866.html                            |
+| 团队成员        | [老蒋](https://www.laojiang.me/)、老赵、[CNJOEL](https://www.rakvps.com/)、木村 |
+| 支持网站        | 乐在云、主机评价网、老蒋玩主机                               |
+| 建站资源推荐    | [便宜VPS推荐](https://www.zhujipingjia.com/pianyivps.html)、[美国VPS推荐](https://www.zhujipingjia.com/uscn2gia.html)、[外贸建站主机](https://www.zhujipingjia.com/wordpress-hosting.html)、[SSL证书推荐](https://www.zhujipingjia.com/two-ssls.html)、[WordPress主机推荐](https://www.zhujipingjia.com/wpblog-host.html) |
+| 提交WP官网（F） |                                                              |
+
+![](wechat.png)
