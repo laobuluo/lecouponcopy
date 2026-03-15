@@ -22,7 +22,7 @@ $le_coupon_copy_options = array_merge(array(
     <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
     <p>
         <?php esc_html_e('在这里，我们根据需要自定义优惠码样式。', 'lecouponcopy'); ?>
-        <a href="<?php echo esc_url('https://www.lezaiyun.com/866.html'); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e('插件介绍', 'lecouponcopy'); ?></a>
+        <a href="<?php echo esc_url(' https://www.laojiang.me/6247.html'); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e('插件介绍', 'lecouponcopy'); ?></a>
         （<?php esc_html_e('关注公众号：老蒋朋友圈', 'lecouponcopy'); ?>）
     </p>
     <form method="post" action="options.php">

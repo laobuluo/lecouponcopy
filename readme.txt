@@ -1,6 +1,6 @@
 === lecouponcopy ===
 Contributors: laobuluo
-Donate link: https://www.lezaiyun.com/
+Donate link:  https://www.laojiang.me/
 Tags: 优惠码复制, coupon
 Requires at least: 6.1
 Tested up to: 6.9

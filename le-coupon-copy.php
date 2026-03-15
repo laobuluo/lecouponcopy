@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: lecouponcopy
- * Plugin URI:  https://www.lezaiyun.com/866.html
+ * Plugin URI:  https://www.laojiang.me/6247.html
  * Description: 一个简单的优惠码复制插件，支持纯文本复制和带跳转链接的复制功能。公众号：<span style="color: red;">老蒋朋友圈</span>
  * Version: 1.0.0
  * Author: 老蒋和他的小伙伴
- * Author URI: https://www.lezaiyun.com/
+ * Author URI: https://www.laojiang.me
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: lecouponcopy
