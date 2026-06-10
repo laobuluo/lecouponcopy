@@ -1,9 +1,15 @@
 (function() {
+    function leCouponShortcodeEscape(v) {
+        return String(v).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+    }
+
     tinymce.create('tinymce.plugins.LeCouponCopy', {
-        init: function(ed, url) {
+        init: function(ed) {
             ed.addButton('le_coupon_copy', {
                 title: '插入优惠码',
-                image: url.replace(/\/[^/]+\.js$/, '') + '/../images/coupon-icon.svg',
+                /* 工具栏直接显示「券」，避免 TinyMCE 加载外链 SVG/图片失败；经典区块 iframe 内同样可见 */
+                text: '券',
+                classes: 'le-coupon-copy-mce-btn',
                 onclick: function() {
                     ed.windowManager.open({
                         title: '插入优惠码',
@@ -25,15 +31,15 @@
                             }
                         ],
                         onsubmit: function(e) {
-                            var shortcode = '[lecoupon';
+                            var shortcode = '[le_coupon_copy';
                             if (e.data.code) {
-                                shortcode += ' code="' + e.data.code + '"';
+                                shortcode += ' code="' + leCouponShortcodeEscape(e.data.code) + '"';
                             }
                             if (e.data.text) {
-                                shortcode += ' text="' + e.data.text + '"';
+                                shortcode += ' text="' + leCouponShortcodeEscape(e.data.text) + '"';
                             }
                             if (e.data.url) {
-                                shortcode += ' url="' + e.data.url + '"';
+                                shortcode += ' url="' + leCouponShortcodeEscape(e.data.url) + '"';
                             }
                             shortcode += ']';
                             ed.insertContent(shortcode);
@@ -42,9 +48,9 @@
                 }
             });
         },
-        createControl: function(n, cm) {
+        createControl: function() {
             return null;
-        },
+        }
     });
     tinymce.PluginManager.add('le_coupon_copy', tinymce.plugins.LeCouponCopy);
-})(); 
+})();

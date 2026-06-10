@@ -1,0 +1,19 @@
+/**
+ * 经典编辑器 TinyMCE：优惠码按钮用文字「券」展示，不依赖外链图片/SVG（iframe 内也可用）。
+ */
+
+.mce-container .mce-widget.mce-btn.le-coupon-copy-mce-btn {
+	min-width: 28px;
+}
+
+.mce-container .mce-widget.mce-btn.le-coupon-copy-mce-btn .mce-txt {
+	font-weight: 600;
+	font-size: 13px !important;
+	line-height: 1 !important;
+	color: #1d2327;
+}
+
+.mce-container .mce-widget.mce-btn.le-coupon-copy-mce-btn:hover .mce-txt,
+.mce-container .mce-widget.mce-btn.le-coupon-copy-mce-btn:focus .mce-txt {
+	color: #2271b1;
+}

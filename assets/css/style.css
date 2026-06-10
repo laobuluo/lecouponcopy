@@ -3,18 +3,26 @@
     vertical-align: baseline;
     margin-left: 10px;
     margin-right: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .le-coupon-copy-wrapper {
-    display: inline-block;
+    display: inline-flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    max-width: 100%;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     border-radius: 4px;
-    overflow: hidden;
+    /* 勿用 overflow:hidden，否则「显示文本 + 优惠码」在窄栏会被裁切，看起来像优惠码被隐藏 */
+    overflow: visible;
     vertical-align: middle;
-    white-space: nowrap;
     line-height: 1;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .le-coupon-text {
@@ -22,13 +30,32 @@
     margin: 0;
     padding: 8px 12px;
     vertical-align: middle;
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.le-coupon-code {
+    display: inline-block;
+    margin: 0;
+    padding: 8px 12px;
+    vertical-align: middle;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.le-coupon-text + .le-coupon-code {
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .le-coupon-copy-btn {
     display: inline-block;
     padding: 8px 12px;
     border: none;
-    border-left: 1px solid currentColor;
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+    /* 背景与文字色由后台内联样式设置，此处仅占位 */
     background: transparent;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -37,6 +64,8 @@
     white-space: nowrap;
     vertical-align: middle;
     line-height: 1;
+    flex-shrink: 0;
+    align-self: stretch;
 }
 
 .le-coupon-copy-btn:hover {
@@ -59,13 +88,6 @@
     border-radius: 4px;
     z-index: 9999;
     display: none;
-    animation: fadeInOut 2s ease-in-out;
     pointer-events: none;
-}
-
-@keyframes fadeInOut {
-    0% { opacity: 0; transform: translateY(-20px); }
-    20% { opacity: 1; transform: translateY(0); }
-    80% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(-20px); }
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }

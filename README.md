@@ -1,91 +1,124 @@
-# lecouponcopy (优惠码复制插件)
+# lecouponcopy
 
-一个简单而功能强大的WordPress优惠码复制插件，支持纯文本复制和带跳转链接的复制功能。
+[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
+[![WordPress](https://img.shields.io/badge/WordPress-6.1%2B-blue.svg)](https://wordpress.org/)
+[![PHP](https://img.shields.io/badge/PHP-7.4%2B-777BB4.svg)](https://www.php.net/)
 
-A simple yet powerful WordPress coupon code copy plugin that supports both plain text copying and copying with redirect links.
+一个轻量级的 WordPress 优惠码复制插件。通过短代码在文章中展示优惠码，访客可一键复制，并支持复制后跳转到指定链接。
 
-## 功能特点 (Features)
-
-- 支持优惠码一键复制
-- 可自定义复制按钮样式
-- 支持复制后自动跳转链接
-- 完全响应式设计
-- 支持WordPress编辑器快捷插入
-- 可自定义文本颜色、按钮颜色和边框样式
-- 内置复制成功提示
-
-## 使用方法 (Usage)
-
-### 基础短代码 (Basic Shortcode)
-
-```
-[lecoupon code="COUPON123"]
-```
-
-### 完整短代码参数 (Full Shortcode Parameters)
-
-```
-[lecoupon code="COUPON123" text="优惠码可见文本" url="https://www.lezaiyun.com"]
-```
-
-参数说明 (Parameters):
-- `code`: 要复制的优惠码
-- `text`: 显示的文本（可选，默认显示优惠码）
-- `url`: 复制后跳转的链接（可选）
-
-## 自定义设置 (Customization)
-
-在WordPress后台可以自定义以下样式：
-
-1. 文本颜色 (Text Color)
-2. 按钮颜色 (Button Color)
-3. 优惠码颜色 (Code Color)
-4. 文本大小 (Text Size)
-5. 按钮大小 (Button Size)
-6. 优惠码大小 (Code Size)
-7. 边框颜色 (Border Color)
-
-## 安装方法 (Installation)
-
-1. 下载插件压缩包
-2. 在WordPress后台点击"插件" > "添加插件"
-3. 点击"上传插件"按钮
-4. 选择下载的压缩包并安装
-5. 启用插件
-
-## 系统要求 (Requirements)
-
-- WordPress 4.7 或更高版本
-- PHP 7.0 或更高版本
-
-## 常见问题 (FAQ)
-
-**Q: 如何在页面中使用这个插件？**  
-A: 只需在编辑器中插入短代码 `[lecoupon code="你的优惠码"]` 即可。
-
-**Q: 是否支持多个优惠码？**  
-A: 是的，您可以在同一页面使用多个短代码来显示不同的优惠码。
-
-## 版本历史 (Changelog)
-
-### 1.0.0
-- 初始版本发布
-- 支持基本的优惠码复制功能
-- 添加自定义样式设置
-- 支持编辑器快捷插入
-
-## 插件团队和技术支持
-
-[老蒋](https://www.laojiang.me/)（老蒋和他的伙伴们），本着资源共享原则，在运营网站过程中用到的或者是有需要用到的主题、插件资源，有选择的免费分享给广大的网友站长，希望能够帮助到你建站过程中提高效率。
-
-感谢团队成员，以及网友提出的优化工具的建议，才有后续产品的不断迭代适合且满足用户需要。不能确保100%的符合兼容网站，我们也仅能做到在工作之余不断的接近和满足你的需要。
-
-| 类目            | 信息                                                         |
-| --------------- | ------------------------------------------------------------ |
-| 插件更新地址    | https://www.laojiang.me/6247.html                            |
-| 团队成员        | [老蒋](https://www.laojiang.me/)、老赵、[CNJOEL](https://www.rakvps.com/)、木村 |
-| 支持网站        | [乐在云](https://www.lezaiyun.com/)、主机评价网              |
-| 建站资源推荐    | [便宜VPS推荐](https://www.zhujipingjia.com/pianyivps.html)、[美国VPS推荐](https://www.zhujipingjia.com/uscn2gia.html)、[外贸建站主机](https://www.zhujipingjia.com/wordpress-hosting.html)、[SSL证书推荐](https://www.zhujipingjia.com/two-ssls.html)、[WordPress主机推荐](https://www.zhujipingjia.com/wpblog-host.html) |
-| 提交WP官网（F） |                                                              |
+A lightweight WordPress plugin for displaying coupon codes with one-click copy and optional redirect support.
 
 ![](wechat.png)
+
+
+## 功能特点
+
+- 一键复制优惠码
+- 可自定义按钮、文本、边框颜色与字号
+- 支持复制成功后跳转链接
+- 响应式布局，兼容多数主题
+- 经典编辑器 TinyMCE 工具栏插入按钮
+- 文本模式 Quicktags 快捷插入
+- 后台「设置 → 优惠码复制」可视化样式配置
+
+## 环境要求
+
+| 项目 | 版本 |
+| --- | --- |
+| WordPress | 6.1+ |
+| PHP | 7.4+ |
+
+## 安装
+
+### 从 GitHub 安装
+
+```bash
+cd wp-content/plugins
+git clone https://github.com/laobuluo/lecouponcopy.git lecouponcopy
+```
+
+然后在 WordPress 后台 **插件** 页面启用 **lecouponcopy**。
+
+### 手动安装
+
+1. 下载本仓库 ZIP 包并解压
+2. 将 `lecouponcopy` 文件夹上传到 `/wp-content/plugins/`
+3. 在后台启用插件
+
+### 启用后
+
+1. 进入 **设置 → 优惠码复制** 调整样式
+2. 在文章或页面中插入短代码，或使用编辑器工具栏按钮
+
+## 短代码用法
+
+基础用法（仅优惠码）：
+
+```
+[le_coupon_copy code="COUPON123"]
+```
+
+完整参数（显示文本 + 跳转链接）：
+
+```
+[le_coupon_copy code="COUPON123" text="点击复制优惠码" url="https://example.com"]
+```
+
+| 参数 | 说明 |
+| --- | --- |
+| `code` | 要复制的优惠码（必填） |
+| `text` | 前台显示文本（可选，默认显示 `code`） |
+| `url` | 复制成功后跳转链接（可选） |
+
+同一页面可插入多个短代码。
+
+## 目录结构
+
+```
+lecouponcopy/
+├── admin/
+│   └── settings.php          # 后台设置页
+├── assets/
+│   ├── css/                  # 前台与编辑器样式
+│   ├── images/               # 图标与公众号二维码等资源
+│   └── js/                   # 前台复制、编辑器与 Quicktags 脚本
+├── le-coupon-copy.php        # 插件主文件
+├── uninstall.php             # 卸载清理
+├── readme.txt                # WordPress.org 插件说明
+├── README.md                 # GitHub 项目说明
+└── LICENSE                   # GPL-2.0 许可证
+```
+
+## 开发说明
+
+本插件遵循 WordPress 编码规范：
+
+- 前台与后台资源通过 `wp_enqueue_style()` / `wp_enqueue_script()` 加载
+- 函数、选项、短代码等使用 `le_coupon_copy` 前缀，避免与其他插件冲突
+- 短代码标签：`le_coupon_copy`
+
+本地调试时，将仓库放在 WordPress 的 `wp-content/plugins/lecouponcopy/` 目录即可。
+
+## 更新日志
+
+### 1.2.1
+
+- 短代码由 `[lecoupon]` 更名为 `[le_coupon_copy]`，符合 WordPress.org 命名规范
+- Quicktags 后台脚本改为通过 `wp_enqueue_script` 加载
+
+### 1.0.0
+
+- 首次发布
+- 短代码、TinyMCE 按钮、Quicktags 按钮与样式设置
+
+完整记录见 [readme.txt](readme.txt)。
+
+## 许可证
+
+本项目基于 [GPL-2.0](LICENSE) 或更高版本发布。
+
+## 链接
+
+- Official Site: https://www.lezaiyun.com/lecouponcopy.html
+- Developer Blog: https://www.laojiang.me/
+- WordPress Plugin Directory: https://wordpress.org/plugins/lecouponcopy/

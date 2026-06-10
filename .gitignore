@@ -1,0 +1,32 @@
+# OS
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE / Editor
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Logs & temp
+*.log
+*.tmp
+*.bak
+
+# Dependencies (if added later)
+node_modules/
+vendor/
+
+# Build / release artifacts
+*.zip
+dist/
+build/
+
+# Local environment
+.env
+.env.*

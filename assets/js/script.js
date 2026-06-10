@@ -1,47 +1,65 @@
-(function($) {
+(function() {
     'use strict';
 
-    $(document).ready(function() {
-        // 初始化clipboard.js
+    function fadeIn(el) {
+        el.style.opacity = '0';
+        el.style.display = 'block';
+        requestAnimationFrame(function() {
+            el.style.transition = 'opacity 0.2s ease';
+            el.style.opacity = '1';
+        });
+    }
+
+    function fadeOutRemove(el) {
+        el.style.transition = 'opacity 0.2s ease';
+        el.style.opacity = '0';
+        setTimeout(function() {
+            if (el.parentNode) {
+                el.parentNode.removeChild(el);
+            }
+        }, 200);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ClipboardJS === 'undefined' || typeof leCouponCopy === 'undefined') {
+            return;
+        }
+
         var clipboard = new ClipboardJS('.le-coupon-copy-btn');
 
-        // 复制成功处理
         clipboard.on('success', function(e) {
-            var $button = $(e.trigger);
-            var url = $button.data('url');
+            var button = e.trigger;
+            var url = button.getAttribute('data-url') || '';
 
-            // 添加复制成功的视觉反馈
-            $button.addClass('copied');
-            
-            // 动态创建并显示成功消息（避免在HTML中插入div导致换行）
-            var $message = $('<div class="le-coupon-copy-message">' + leCouponCopy.success_message + '</div>');
-            $('body').append($message);
-            $message.fadeIn(200);
+            button.classList.add('copied');
+
+            var message = document.createElement('div');
+            message.className = 'le-coupon-copy-message';
+            message.textContent = leCouponCopy.success_message;
+            document.body.appendChild(message);
+            fadeIn(message);
             setTimeout(function() {
-                $message.fadeOut(200, function() {
-                    $message.remove();
-                });
+                fadeOutRemove(message);
             }, 2000);
 
-            // 如果设置了URL，则在新窗口中打开
-            if (url && url.length > 0) {
+            if (url.length > 0 && /^https?:\/\//i.test(url)) {
                 setTimeout(function() {
-                    window.open(url, '_blank');
+                    window.open(url, '_blank', 'noopener,noreferrer');
                 }, 300);
             }
 
-            // 2秒后恢复按钮状态
             setTimeout(function() {
-                $button.removeClass('copied');
+                button.classList.remove('copied');
             }, 2000);
 
             e.clearSelection();
         });
 
-        // 复制失败处理
         clipboard.on('error', function(e) {
-            console.error('复制失败:', e.action);
-            alert('复制失败，请手动复制优惠码。');
+            if (typeof console !== 'undefined' && console.error) {
+                console.error('复制失败:', e.action);
+            }
+            alert(leCouponCopy.error_message);
         });
     });
-})(jQuery);
+})();
