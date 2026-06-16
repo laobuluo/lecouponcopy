@@ -9,13 +9,13 @@
         return String(v).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
     }
 
-    QTags.addButton('le_coupon_copy', '插入优惠码', function() {
-        var code = prompt('请输入优惠码：', '');
+    QTags.addButton('le_coupon_copy', leCouponCopyAdmin.buttonText, function() {
+        var code = prompt(leCouponCopyAdmin.promptCode, '');
         if (code === null || code === '') {
             return;
         }
-        var text = prompt('请输入显示文本（可选，留空则使用优惠码）：', '');
-        var url = prompt('请输入跳转链接（可选）：', '');
+        var text = prompt(leCouponCopyAdmin.promptText, '');
+        var url = prompt(leCouponCopyAdmin.promptUrl, '');
         var tag = leCouponCopyAdmin.shortcodeTag;
         var shortcode = '[' + tag + ' code="' + leCouponShortcodeEscape(code) + '"';
         if (text && text !== '') {

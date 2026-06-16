@@ -1,0 +1,101 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: lecouponcopy 1.2.1\n"
+"POT-Creation-Date: 2026-06-16 16:40+0800\n"
+"PO-Revision-Date: 2026-06-16 16:40+0800\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Cursor Codex\n"
+"X-Domain: lecouponcopy\n"
+
+msgid "Coupon Copy Settings"
+msgstr "優惠碼複製設定"
+
+msgid "Coupon Copy"
+msgstr "優惠碼複製"
+
+msgid "已复制!"
+msgstr "已複製!"
+
+msgid "复制"
+msgstr "複製"
+
+msgid "优惠码已复制！"
+msgstr "優惠碼已複製！"
+
+msgid "复制失败，请手动复制优惠码。"
+msgstr "複製失敗，請手動複製優惠碼。"
+
+msgid "Insert Coupon"
+msgstr "插入優惠碼"
+
+msgid "Please enter coupon code:"
+msgstr "請輸入優惠碼："
+
+msgid "Please enter display text (optional, leave empty to use coupon code):"
+msgstr "請輸入顯示文字（可選，留空則使用優惠碼）："
+
+msgid "Please enter redirect URL (optional):"
+msgstr "請輸入跳轉連結（可選）："
+
+msgid "Coupon"
+msgstr "券"
+
+msgid "Coupon Code"
+msgstr "優惠碼"
+
+msgid "Display Text (Optional)"
+msgstr "顯示文字（可選）"
+
+msgid "Redirect URL (Optional)"
+msgstr "跳轉連結（可選）"
+
+msgid "在这里，我们根据需要自定义优惠码样式。"
+msgstr "在這裡，您可以依需求自訂優惠碼樣式。"
+
+msgid "插件详情发布介绍"
+msgstr "外掛詳情介紹"
+
+msgid "关注公众号：lezaiyun"
+msgstr "關注公眾號：lezaiyun"
+
+msgid "边框颜色"
+msgstr "邊框顏色"
+
+msgid "文本颜色"
+msgstr "文字顏色"
+
+msgid "复制按钮文字颜色"
+msgstr "複製按鈕文字顏色"
+
+msgid "复制按钮背景颜色"
+msgstr "複製按鈕背景顏色"
+
+msgid "优惠码颜色"
+msgstr "優惠碼顏色"
+
+msgid "文本大小 (px)"
+msgstr "文字大小 (px)"
+
+msgid "按钮大小 (px)"
+msgstr "按鈕大小 (px)"
+
+msgid "优惠码大小 (px)"
+msgstr "優惠碼大小 (px)"
+
+msgid "扫码关注公众号"
+msgstr "掃碼關注公眾號"
+
+msgid "📢 关注乐在云，获取插件教程、更新通知。"
+msgstr "📢 關注樂在雲，獲取外掛教學與更新通知。"
+
+msgid "乐在云工作室"
+msgstr "樂在雲工作室"
+
+msgid "By"
+msgstr "By"
+
+msgid "老蒋"
+msgstr "老蔣"

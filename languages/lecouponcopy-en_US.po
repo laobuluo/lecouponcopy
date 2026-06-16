@@ -1,0 +1,101 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: lecouponcopy 1.2.1\n"
+"POT-Creation-Date: 2026-06-16 16:40+0800\n"
+"PO-Revision-Date: 2026-06-16 16:40+0800\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Cursor Codex\n"
+"X-Domain: lecouponcopy\n"
+
+msgid "Coupon Copy Settings"
+msgstr "Coupon Copy Settings"
+
+msgid "Coupon Copy"
+msgstr "Coupon Copy"
+
+msgid "已复制!"
+msgstr "Copied!"
+
+msgid "复制"
+msgstr "Copy"
+
+msgid "优惠码已复制！"
+msgstr "Coupon code copied!"
+
+msgid "复制失败，请手动复制优惠码。"
+msgstr "Copy failed, please copy the coupon code manually."
+
+msgid "Insert Coupon"
+msgstr "Insert Coupon"
+
+msgid "Please enter coupon code:"
+msgstr "Please enter coupon code:"
+
+msgid "Please enter display text (optional, leave empty to use coupon code):"
+msgstr "Please enter display text (optional, leave empty to use coupon code):"
+
+msgid "Please enter redirect URL (optional):"
+msgstr "Please enter redirect URL (optional):"
+
+msgid "Coupon"
+msgstr "Coupon"
+
+msgid "Coupon Code"
+msgstr "Coupon Code"
+
+msgid "Display Text (Optional)"
+msgstr "Display Text (Optional)"
+
+msgid "Redirect URL (Optional)"
+msgstr "Redirect URL (Optional)"
+
+msgid "在这里，我们根据需要自定义优惠码样式。"
+msgstr "Customize coupon style settings here."
+
+msgid "插件详情发布介绍"
+msgstr "Plugin details"
+
+msgid "关注公众号：lezaiyun"
+msgstr "Follow WeChat: lezaiyun"
+
+msgid "边框颜色"
+msgstr "Border Color"
+
+msgid "文本颜色"
+msgstr "Text Color"
+
+msgid "复制按钮文字颜色"
+msgstr "Copy Button Text Color"
+
+msgid "复制按钮背景颜色"
+msgstr "Copy Button Background Color"
+
+msgid "优惠码颜色"
+msgstr "Coupon Code Color"
+
+msgid "文本大小 (px)"
+msgstr "Text Size (px)"
+
+msgid "按钮大小 (px)"
+msgstr "Button Size (px)"
+
+msgid "优惠码大小 (px)"
+msgstr "Coupon Code Size (px)"
+
+msgid "扫码关注公众号"
+msgstr "Scan QR to follow"
+
+msgid "📢 关注乐在云，获取插件教程、更新通知。"
+msgstr "Follow Lezaiyun for plugin guides and update notices."
+
+msgid "乐在云工作室"
+msgstr "Lezaiyun Studio"
+
+msgid "By"
+msgstr "By"
+
+msgid "老蒋"
+msgstr "LaoJiang"

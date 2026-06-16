@@ -4,7 +4,7 @@ Donate link: https://www.lezaiyun.com/donate/
 Tags: coupon, coupon copy, shortcode
 Requires at least: 6.1
 Tested up to: 7.0
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -15,10 +15,11 @@ A simple WordPress coupon copy plugin with shortcode and redirect support.
 
 LeCouponCopy is a lightweight WordPress plugin that displays coupon codes with a shortcode. Visitors can copy a coupon code with one click, and you can optionally redirect users to a target URL after the copy action.
 
-This plugin is developed by **Lezaiyun Studio** and maintained by LaoJiang.
+This plugin is developed by **LeZaiYun Studio** and maintained by LaoJiang.
 
-🔗 Official product page: https://www.lezaiyun.com/lecouponcopy.html
-👤 Developer Blog: https://www.laojiang.me
+🔗 Official product page: [https://www.lezaiyun.com/lecouponcopy.html](https://www.lezaiyun.com/lecouponcopy.html)
+
+👤 Developer Blog: [https://www.laojiang.me](https://www.laojiang.me)
 
 = Features =
 
@@ -85,6 +86,10 @@ Add the `url` parameter in the shortcode, for example: `[le_coupon_copy code="AB
 
 == Changelog ==
 
+= 1.2.2 =
+* Added multilingual support with language packs: English (`en_US`), Simplified Chinese (`zh_CN`), and Traditional Chinese (`zh_TW`)
+* Added plugin textdomain loading and standardized translation-ready UI strings for admin/editor prompts
+
 = 1.2.1 =
 * Renamed shortcode from `[lecoupon]` to `[le_coupon_copy]` for WordPress.org naming guidelines
 * Moved Quicktags admin JavaScript to enqueued script file
@@ -97,6 +102,9 @@ Add the `url` parameter in the shortcode, for example: `[le_coupon_copy code="AB
 * Added style settings for text, button, border colors, and font sizes
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+Added multilingual language packs and translation-ready admin/editor UI text.
 
 = 1.2.1 =
 Shortcode renamed to `[le_coupon_copy]`. Update existing shortcodes and re-submit with enqueued admin scripts.

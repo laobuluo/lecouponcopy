@@ -3,20 +3,22 @@
  * Plugin Name: lecouponcopy
  * Plugin URI:  https://www.lezaiyun.com/lecouponcopy.html
  * Description: 一个简单的优惠码复制插件，支持纯文本复制和带跳转链接的复制功能。
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author: 老蒋
  * Author URI: https://www.laojiang.me
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: lecouponcopy
+ * Domain Path: /languages
  */
 
 if (!defined('ABSPATH')) {
     exit;
 }
 
-define('LE_COUPON_COPY_VERSION', '1.2.1');
+define('LE_COUPON_COPY_VERSION', '1.2.2');
 define('LE_COUPON_COPY_SHORTCODE', 'le_coupon_copy');
+define('LE_COUPON_COPY_LANG_DIR', dirname(plugin_basename(__FILE__)) . '/languages/');
 
 class LeCouponCopy {
     private static $instance = null;
@@ -32,11 +34,16 @@ class LeCouponCopy {
     }
 
     private function __construct() {
+        add_action('plugins_loaded', array($this, 'load_textdomain'));
         add_action('admin_menu', array($this, 'add_admin_menu'));
         add_action('admin_init', array($this, 'register_settings'));
         add_shortcode(LE_COUPON_COPY_SHORTCODE, array($this, 'coupon_shortcode'));
         add_action('admin_init', array($this, 'add_editor_button'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_editor_assets'));
+    }
+
+    public function load_textdomain() {
+        load_plugin_textdomain('lecouponcopy', false, LE_COUPON_COPY_LANG_DIR);
     }
 
     public function activate() {
@@ -58,8 +65,8 @@ class LeCouponCopy {
 
     public function add_admin_menu() {
         add_options_page(
-            '优惠码复制设置',
-            '优惠码复制',
+            __('Coupon Copy Settings', 'lecouponcopy'),
+            __('Coupon Copy', 'lecouponcopy'),
             'manage_options',
             'le-coupon-copy',
             array($this, 'admin_page')
@@ -260,14 +267,32 @@ class LeCouponCopy {
             'le-coupon-copy-quicktags',
             'leCouponCopyAdmin',
             array(
-                'shortcodeTag' => LE_COUPON_COPY_SHORTCODE,
+                'shortcodeTag'   => LE_COUPON_COPY_SHORTCODE,
+                'buttonText'     => __('Insert Coupon', 'lecouponcopy'),
+                'promptCode'     => __('Please enter coupon code:', 'lecouponcopy'),
+                'promptText'     => __('Please enter display text (optional, leave empty to use coupon code):', 'lecouponcopy'),
+                'promptUrl'      => __('Please enter redirect URL (optional):', 'lecouponcopy'),
             )
         );
     }
 
     public function add_tinymce_plugin($plugin_array) {
+        $editor_i18n = array(
+            'buttonTitle' => __('Insert Coupon', 'lecouponcopy'),
+            'buttonText'  => __('Coupon', 'lecouponcopy'),
+            'modalTitle'  => __('Insert Coupon', 'lecouponcopy'),
+            'labelCode'   => __('Coupon Code', 'lecouponcopy'),
+            'labelText'   => __('Display Text (Optional)', 'lecouponcopy'),
+            'labelUrl'    => __('Redirect URL (Optional)', 'lecouponcopy'),
+        );
         $plugin_array['le_coupon_copy'] = esc_url(
-            add_query_arg('ver', rawurlencode(LE_COUPON_COPY_VERSION), plugins_url('assets/js/editor-plugin.js', __FILE__))
+            add_query_arg(
+                array(
+                    'ver'     => rawurlencode(LE_COUPON_COPY_VERSION),
+                    'i18n'    => rawurlencode(wp_json_encode($editor_i18n)),
+                ),
+                plugins_url('assets/js/editor-plugin.js', __FILE__)
+            )
         );
         return $plugin_array;
     }
